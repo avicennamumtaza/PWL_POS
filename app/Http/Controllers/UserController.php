@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function index()
+    public function index() // CRUD DATA IN DATABASE WITH ELOQUENT ORM
     {
         // add a user data with Eloquent Model
         // $data = [

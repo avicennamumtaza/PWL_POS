@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class KategoriController extends Controller
 {
-    public function index()
+    public function index() // CRUD DATA IN DATABASE WITH QUERY BUILDER
     {
         // $data = [
         //     'kategori_kode' => 'SNK',

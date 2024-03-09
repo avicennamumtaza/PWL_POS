@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class LevelController extends Controller
 {
-    public function index()
+    public function index() // CRUD DATA IN DATABASE WITH DB FACADE
     {
         // DB::insert('insert into m_level (level_kode, level_nama, created_at) values (?, ?, ?)', ['CUS', 'Pelanggan', now()]);
         // return 'insert data berhasil.';
