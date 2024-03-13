@@ -11,6 +11,14 @@ class UserController extends Controller
 {
     public function index() // CRUD DATA IN DATABASE WITH ELOQUENT ORM
     {
+        $data = [
+            'level_id' => 2,
+            'username' => 'manager_tiga',
+            'nama' => 'Manager 3',
+            'password' => Hash::make('12345')
+        ];
+        UserModel::create($data);
+
         // add a user data with Eloquent Model
         // $data = [
         //     'username' => 'customer-1',
@@ -27,7 +35,7 @@ class UserController extends Controller
         // UserModel::where('username', 'customer-1')->update($data);
 
         // delete a user data with Eloquent Model
-        // UserModel::where('username', 'customer-1')->delete();
+        // UserModel::where('username', 'manager_tiga')->delete();
 
         // try to access UserModel
         $user = UserModel::all();
