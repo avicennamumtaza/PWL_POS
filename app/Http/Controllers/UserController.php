@@ -103,7 +103,9 @@ class UserController extends Controller
         // dd($user->wasChanged(['nama', 'username'])); // true
 
         // try to access UserModel
-        $user = UserModel::all();
+        // $user = UserModel::all();
+        $user = UserModel::with('level')->get();
+        dd($user);
         return view('user', ['data' => $user]);
     }
 
