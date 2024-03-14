@@ -40,10 +40,16 @@ class UserController extends Controller
         // $user = UserModel::find(1);
         // $user = UserModel::where('level_id', 1)->first();
         // $user = UserModel::firstWhere('level_id', 1);
-        $user = UserModel::findOr(20, ['username', 'nama'], function() {
-            abort(404);
-            // abort(403, 'data yang ditemukan tidak cukup');
-        });
+        // $user = UserModel::findOr(20, ['username', 'nama'], function() {
+        //     abort(404);
+        //     // abort(403, 'data yang ditemukan tidak cukup');
+        // });
+        // $user = UserModel::where('level_id', '>', 3)->firstOr(function() {
+        //     //...
+        // });
+        // $user = UserModel::findOrFail(1);
+        $user = UserModel::where('username', 'manager9')->firstOrFail();
+
         // try to access UserModel
         // $user = UserModel::all();
         return view('user', ['d' => $user]);
