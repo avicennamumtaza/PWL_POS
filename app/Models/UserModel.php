@@ -14,6 +14,7 @@ class UserModel extends Model
     protected $table = 'm_user';
     protected $primaryKey = 'user_id';
 
-    // protected $fillable = ['level_id', 'username', 'nama', 'password'];
+    // protected $guarded = ['password', 'role']; Kolom Password dan Role akan diabaikan dalam operasi database sebagai bentuk proteksi terhadap tindakan-tindakan orang tak bertanggung jawab
+    // protected $fillable = ['level_id', 'username', 'nama', 'password']; Keempat kolom disamping wajib diberikan value ketika melakukan operasi dalam database
     protected $fillable = ['level_id', 'username', 'nama'];
 }
