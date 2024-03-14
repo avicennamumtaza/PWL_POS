@@ -48,7 +48,10 @@ class UserController extends Controller
         //     //...
         // });
         // $user = UserModel::findOrFail(1);
-        $user = UserModel::where('username', 'manager9')->firstOrFail();
+        // $user = UserModel::where('username', 'manager9')->firstOrFail();
+        $user = UserModel::where('level_id', 2)->count();
+        // dd($user);
+        // $max = UserModel::where('active', 1)->max('price');
 
         // try to access UserModel
         // $user = UserModel::all();
