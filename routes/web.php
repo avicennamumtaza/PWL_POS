@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LevelController;
@@ -127,3 +130,18 @@ Route::group(['prefix' => 'penjualan'], function () {
 
 Route::resource('m_user', PosController::class);
 Route::get('/', [WelcomeController::class, 'index']);
+
+Route::get('login', [AuthController::class, 'index'])->name('login');
+Route::get('register', [AuthController::class, 'register'])->name('register');
+Route::post('prosesLogin', [AuthController::class, 'prosesLogin'])->name('prosesLogin');
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('prosesRegister', [AuthController::class, 'prosesRegister'])->name('prosesRegister');
+
+Route::group(['middleware' => ['auth']], function() {
+    Route::group(['middleware' => ['CekLogin:1']], function() {
+        Route::resource('admin', AdminController::class);
+    });
+    Route::group(['middleware' => ['CekLogin:2']], function() {
+        Route::resource('manager', ManagerController::class);
+    });
+});
