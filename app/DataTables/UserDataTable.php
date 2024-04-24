@@ -2,7 +2,6 @@
 
 namespace App\DataTables;
 
-use App\Models\m_user;
 use App\Models\UserModel;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
@@ -25,9 +24,9 @@ class UserDataTable extends DataTable
         return (new EloquentDataTable($query))
         ->setRowId('id')
         ->addcolumn('action', function($row){
-            $action = '<a href="user/edit/'.$row->user_id.'" class="edit btn-primary  btn-sm">Edit</a>';
+            $action = '<a href="user/edit/' . $row->user_id . '" class="edit btn-primary  btn-sm">Edit</a>';
             $action .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-            $action .= '<a href="user/delete/'.$row->user_id.'" class="delete btn-danger  btn-sm">Delete</a>';
+            $action .= '<a href="user/delete/' . $row->user_id . '" class="delete btn-danger  btn-sm">Delete</a>';
             return $action;
         });
     }
@@ -69,7 +68,7 @@ class UserDataTable extends DataTable
     {
         return [
             Column::make('user_id'),
-            Column::make('level_id'),
+            Column::make('level'),
             Column::make('username'),
             Column::make('nama'),
             Column::make('password'),

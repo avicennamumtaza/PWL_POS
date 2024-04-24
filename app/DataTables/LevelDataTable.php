@@ -2,7 +2,6 @@
 
 namespace App\DataTables;
 
-use App\Models\Level;
 use App\Models\LevelModel;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
@@ -23,12 +22,11 @@ class LevelDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            //->addColumn('action', 'level.action')
             ->setRowId('id')
             ->addcolumn('action', function($row){
-                $action = '<a href="level/edit/'.$row->level_id.'" class="edit btn-primary  btn-sm">Edit</a>';
+                $action = '<a href="level/edit/' . $row->level_id . '" class="edit btn-primary  btn-sm">Edit</a>';
                 $action .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-                $action .= '<a href="level/delete/'.$row->level_id.'" class="delete btn-danger  btn-sm">Delete</a>';
+                $action .= '<a href="level/delete/' . $row->level_id . '" class="delete btn-danger  btn-sm">Delete</a>';
                 return $action;
             });
     }
