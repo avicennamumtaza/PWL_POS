@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::post('/register', RegisterController::class)->name('register');
+Route::post('/register1', RegisterController::class)->name('register1');
 Route::post('/login', LoginController::class)->name('login');
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
@@ -39,14 +40,14 @@ Route::put('levels/{level}', [LevelController::class, 'update']);
 Route::delete('levels/{level}', [LevelController::class, 'destroy']);
 
 Route::get('barangs', [BarangController::class, 'index']);
+Route::post('barangs2', [BarangController::class, 'store']);
 Route::get('barangs/{barang}', [BarangController::class, 'show']);
-Route::post('barangs', [BarangController::class, 'store']);
 Route::put('barangs/{barang}', [BarangController::class, 'update']);
 Route::delete('barangs/{barang}', [BarangController::class, 'destroy']);
 
 Route::get('kategoris', [KategoriController::class, 'index']);
-Route::get('kategoris/{kategori}', [KategoriController::class, 'show']);
 Route::post('kategoris', [KategoriController::class, 'store']);
+Route::get('kategoris/{kategori}', [KategoriController::class, 'show']);
 Route::put('kategoris/{kategori}', [KategoriController::class, 'update']);
 Route::delete('kategoris/{kategori}', [KategoriController::class, 'destroy']);
 
